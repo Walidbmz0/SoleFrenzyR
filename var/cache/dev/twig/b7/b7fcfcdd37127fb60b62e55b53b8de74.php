@@ -65,7 +65,7 @@ class __TwigTemplate_3ca918230cde40438c509694398db291 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello HomeController!";
+        echo "Accueil";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -86,7 +86,27 @@ class __TwigTemplate_3ca918230cde40438c509694398db291 extends Template
 
         // line 6
         echo "
+<html>
+    
+    <p style=\"text-align:center\">Faites votre choix</p>
 
+ 
+    <div class=\"card w-96 bg-base-100 shadow-xl image-full h-2.5\">
+        <figure><img src=\"/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg\" alt=\"Shoes\" /></figure>
+        <div class=\"card-body\">
+          <h2 class=\"card-title\">Shoes!</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class=\"card-actions justify-end\">
+            <button class=\"btn btn-primary\">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    </body>
+
+
+      
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -115,11 +135,31 @@ class __TwigTemplate_3ca918230cde40438c509694398db291 extends Template
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 
+<html>
+    
+    <p style=\"text-align:center\">Faites votre choix</p>
 
+ 
+    <div class=\"card w-96 bg-base-100 shadow-xl image-full h-2.5\">
+        <figure><img src=\"/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg\" alt=\"Shoes\" /></figure>
+        <div class=\"card-body\">
+          <h2 class=\"card-title\">Shoes!</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class=\"card-actions justify-end\">
+            <button class=\"btn btn-primary\">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    </body>
+
+
+      
 {% endblock %}
 ", "home/index.html.twig", "/Users/walidbelmezouar/Documents/prog/SoleFrenzyR/templates/home/index.html.twig");
     }
