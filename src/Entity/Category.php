@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -26,6 +27,10 @@ class Category
         $this->products = new ArrayCollection();
     }
 
+    public function __toString(): string
+    {
+        return $this->name ?? '';
+    }
     public function getId(): ?int
     {
         return $this->id;
