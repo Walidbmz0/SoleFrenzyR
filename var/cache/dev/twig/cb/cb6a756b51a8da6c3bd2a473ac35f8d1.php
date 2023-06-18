@@ -86,7 +86,7 @@ class __TwigTemplate_e6efc96c58702d2fc2fd2b76d39d4983 extends Template
 
         // line 6
         echo "
-<h1>Tous les produits</h1>
+<h1><strong>Tous les produits<strong></h1>
 
 ";
         // line 9
@@ -115,7 +115,10 @@ class __TwigTemplate_e6efc96c58702d2fc2fd2b76d39d4983 extends Template
             // line 21
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "price", [], "any", false, false, false, 21), "html", null, true);
             echo "</span>
-            <a href=\"#\" class=\"text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\">Ajouter au panier</a>
+            <a href=\"";
+            // line 22
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cart_add");
+            echo "\" class=\"text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\">Ajouter au panier</a>
         </div>
     </div>
 </div>
@@ -151,7 +154,7 @@ class __TwigTemplate_e6efc96c58702d2fc2fd2b76d39d4983 extends Template
 
     public function getDebugInfo()
     {
-        return array (  131 => 30,  116 => 21,  110 => 18,  103 => 14,  97 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  134 => 30,  120 => 22,  116 => 21,  110 => 18,  103 => 14,  97 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -162,7 +165,7 @@ class __TwigTemplate_e6efc96c58702d2fc2fd2b76d39d4983 extends Template
 
 {% block body %}
 
-<h1>Tous les produits</h1>
+<h1><strong>Tous les produits<strong></h1>
 
 {% for product in products %}
 
@@ -177,7 +180,7 @@ class __TwigTemplate_e6efc96c58702d2fc2fd2b76d39d4983 extends Template
         </a>
         <div class=\"flex items-center justify-between\">
             <span class=\"text-3xl font-bold text-gray-900 dark:text-white\">\${{product.price}}</span>
-            <a href=\"#\" class=\"text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\">Ajouter au panier</a>
+            <a href=\"{{path('cart_add')}}\" class=\"text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\">Ajouter au panier</a>
         </div>
     </div>
 </div>

@@ -16,6 +16,7 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/accessories' => [[['_route' => 'app_accessories', '_controller' => 'App\\Controller\\AccessoriesController::index'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\Admin\\DashboardController::index'], null, null, null, false, false, null]],
+        '/mon-panier' => [[['_route' => 'cart_add', '_controller' => 'App\\Controller\\CartController::index'], null, null, null, false, false, null]],
         '/clothes' => [[['_route' => 'app_clothes', '_controller' => 'App\\Controller\\ClothesController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/product' => [[['_route' => 'product_index', '_controller' => 'App\\Controller\\ProductController::index'], null, null, null, false, false, null]],
