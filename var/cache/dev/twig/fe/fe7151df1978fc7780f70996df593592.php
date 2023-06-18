@@ -85,31 +85,8 @@ class __TwigTemplate_0ed7dc0ca903767ccd94b0e7ef6737ca extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable($context["product"]);
-        foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
-            // line 7
-            echo "    ";
-            // line 8
-            echo "    <h2>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 8), "html", null, true);
-            echo "</h2>
-    <p>";
-            // line 9
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "description", [], "any", false, false, false, 9), "html", null, true);
-            echo "</p>
-    <img src=\"";
-            // line 10
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "attachment", [], "any", false, false, false, 10), "html", null, true);
-            echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 10), "html", null, true);
-            echo "\">
-
-    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
+        echo "
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -130,7 +107,7 @@ class __TwigTemplate_0ed7dc0ca903767ccd94b0e7ef6737ca extends Template
 
     public function getDebugInfo()
     {
-        return array (  103 => 10,  99 => 9,  94 => 8,  92 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -140,14 +117,7 @@ class __TwigTemplate_0ed7dc0ca903767ccd94b0e7ef6737ca extends Template
 {% block title %}Vêtements{% endblock %}
 
 {% block body %}
-{% for product in product %}
-    {# Afficher les informations du product ici #}
-    <h2>{{ product.name }}</h2>
-    <p>{{ product.description }}</p>
-    <img src=\"{{ product.attachment }}\" alt=\"{{ product.name }}\">
 
-    {# Autres éléments du product... #}
-{% endfor %}
 {% endblock %}
 ", "clothes/index.html.twig", "/Users/walidbelmezouar/Documents/prog/SoleFrenzyR/templates/clothes/index.html.twig");
     }

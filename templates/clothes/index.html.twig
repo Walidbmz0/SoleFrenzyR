@@ -3,12 +3,5 @@
 {% block title %}Vêtements{% endblock %}
 
 {% block body %}
-{% for product in product %}
-    {# Afficher les informations du product ici #}
-    <h2>{{ product.name }}</h2>
-    <p>{{ product.description }}</p>
-    <img src="{{ product.attachment }}" alt="{{ product.name }}">
 
-    {# Autres éléments du product... #}
-{% endfor %}
 {% endblock %}
