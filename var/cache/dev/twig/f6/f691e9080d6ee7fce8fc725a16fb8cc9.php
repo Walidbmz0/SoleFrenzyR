@@ -88,8 +88,6 @@ class __TwigTemplate_87b684db5b748d25819948288f864732 extends Template
         echo "
 <html>
     
-    <p style=\"text-align:center\">Faites votre choix</p>
-
  
     <div class=\"card w-96 bg-base-100 shadow-xl image-full h-2.5\">
         <figure><img src=\"/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg\" alt=\"Shoes\" /></figure>
@@ -141,8 +139,6 @@ class __TwigTemplate_87b684db5b748d25819948288f864732 extends Template
 
 <html>
     
-    <p style=\"text-align:center\">Faites votre choix</p>
-
  
     <div class=\"card w-96 bg-base-100 shadow-xl image-full h-2.5\">
         <figure><img src=\"/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg\" alt=\"Shoes\" /></figure>

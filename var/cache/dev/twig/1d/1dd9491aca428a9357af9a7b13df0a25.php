@@ -65,7 +65,7 @@ class __TwigTemplate_d29143b4047c4cc57ae62c3f3fc10c1e extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Register";
+        echo "Inscription";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -100,7 +100,7 @@ class __TwigTemplate_d29143b4047c4cc57ae62c3f3fc10c1e extends Template
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 9
         echo "
-    <h1>Register</h1>
+    <h1>Inscription</h1>
 
     ";
         // line 12
@@ -140,11 +140,15 @@ class __TwigTemplate_d29143b4047c4cc57ae62c3f3fc10c1e extends Template
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 22, $this->source); })()), "agreeTerms", [], "any", false, false, false, 22), 'row');
         echo "
 
-        <button type=\"submit\" class=\"btn\">Register</button>
-    ";
+        <button type=\"submit\" class=\"btn\">S'inscrire</button>
+        ";
         // line 25
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 25, $this->source); })()), 'form_end');
         echo "
+        <a href=\"";
+        // line 26
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+        echo "\" class=\"btn\">Déjà inscris ? Connectez vous</a href>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -166,21 +170,21 @@ class __TwigTemplate_d29143b4047c4cc57ae62c3f3fc10c1e extends Template
 
     public function getDebugInfo()
     {
-        return array (  146 => 25,  140 => 22,  137 => 21,  135 => 19,  131 => 18,  127 => 17,  123 => 16,  119 => 15,  115 => 14,  111 => 13,  107 => 12,  102 => 9,  93 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  150 => 26,  146 => 25,  140 => 22,  137 => 21,  135 => 19,  131 => 18,  127 => 17,  123 => 16,  119 => 15,  115 => 14,  111 => 13,  107 => 12,  102 => 9,  93 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class=\"alert alert-danger\" role=\"alert\">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <h1>Inscription</h1>
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.firstname) }}
@@ -194,9 +198,12 @@ class __TwigTemplate_d29143b4047c4cc57ae62c3f3fc10c1e extends Template
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type=\"submit\" class=\"btn\">Register</button>
-    {{ form_end(registrationForm) }}
+        <button type=\"submit\" class=\"btn\">S'inscrire</button>
+        {{ form_end(registrationForm) }}
+        <a href=\"{{ path('app_login') }}\" class=\"btn\">Déjà inscris ? Connectez vous</a href>
 {% endblock %}
+
+
 ", "registration/register.html.twig", "/Users/walidbelmezouar/Documents/prog/SoleFrenzyR/templates/registration/register.html.twig");
     }
 }
