@@ -117,7 +117,7 @@ class __TwigTemplate_e6efc96c58702d2fc2fd2b76d39d4983 extends Template
             echo "</span>
             <a href=\"";
             // line 22
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cart_add");
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cart_index");
             echo "\" class=\"text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\">Ajouter au panier</a>
         </div>
     </div>
@@ -180,7 +180,7 @@ class __TwigTemplate_e6efc96c58702d2fc2fd2b76d39d4983 extends Template
         </a>
         <div class=\"flex items-center justify-between\">
             <span class=\"text-3xl font-bold text-gray-900 dark:text-white\">\${{product.price}}</span>
-            <a href=\"{{path('cart_add')}}\" class=\"text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\">Ajouter au panier</a>
+            <a href=\"{{path('cart_index')}}\" class=\"text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\">Ajouter au panier</a>
         </div>
     </div>
 </div>
