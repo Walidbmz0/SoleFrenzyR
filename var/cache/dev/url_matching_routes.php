@@ -16,7 +16,8 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/accessories' => [[['_route' => 'app_accessories', '_controller' => 'App\\Controller\\AccessoriesController::index'], null, null, null, false, false, null]],
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\Admin\\DashboardController::index'], null, null, null, false, false, null]],
-        '/mon-panier' => [[['_route' => 'cart_index', '_controller' => 'App\\Controller\\CartController::index'], null, null, null, false, false, null]],
+        '/mon-panier' => [[['_route' => 'basket_index', '_controller' => 'App\\Controller\\BasketController::index'], null, null, null, false, false, null]],
+        '/mon-panier/removeAll' => [[['_route' => 'basket_removeAll', '_controller' => 'App\\Controller\\BasketController::removeBasketAll'], null, null, null, false, false, null]],
         '/clothes' => [[['_route' => 'app_clothes', '_controller' => 'App\\Controller\\ClothesController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/product' => [[['_route' => 'product_index', '_controller' => 'App\\Controller\\ProductController::index'], null, null, null, false, false, null]],
@@ -43,7 +44,11 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/mon\\-panier/add/(\\d+)(*:191)'
+                .'|/mon\\-panier/(?'
+                    .'|add/(\\d+)(*:194)'
+                    .'|remove/(\\d+)(*:214)'
+                    .'|decrease/(\\d+)(*:236)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -54,8 +59,10 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        191 => [
-            [['_route' => 'cart_add', '_controller' => 'App\\Controller\\CartController::addToRoute'], ['id'], null, null, false, true, null],
+        194 => [[['_route' => 'basket_add', '_controller' => 'App\\Controller\\BasketController::addToBasket'], ['id'], null, null, false, true, null]],
+        214 => [[['_route' => 'basket_remove', '_controller' => 'App\\Controller\\BasketController::removeBasket'], ['id'], null, null, false, true, null]],
+        236 => [
+            [['_route' => 'basket_decrease', '_controller' => 'App\\Controller\\BasketController::decrease'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

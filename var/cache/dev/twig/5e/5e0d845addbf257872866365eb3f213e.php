@@ -61,22 +61,25 @@ class __TwigTemplate_490c84959c173dabd2b9633835053a6a extends Template
         echo "        ";
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 14
-        echo "        
+        echo "        <link rel=\"stylesheet\" href=\"";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("styles/app.css"), "html", null, true);
+        echo "\">
+        
         ";
-        // line 15
+        // line 16
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 18
+        // line 19
         echo "        
         ";
-        // line 19
-        $this->loadTemplate("partials/_header.html.twig", "base.html.twig", 19)->display($context);
         // line 20
+        $this->loadTemplate("partials/_header.html.twig", "base.html.twig", 20)->display($context);
+        // line 21
         echo "        ";
         $this->displayBlock('body', $context, $blocks);
-        // line 22
-        echo "        ";
-        $this->loadTemplate("partials/_footer.html.twig", "base.html.twig", 22)->display($context);
         // line 23
+        echo "        ";
+        $this->loadTemplate("partials/_footer.html.twig", "base.html.twig", 23)->display($context);
+        // line 24
         echo "        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js\"></script>
     </body>
 </html>
@@ -129,7 +132,7 @@ class __TwigTemplate_490c84959c173dabd2b9633835053a6a extends Template
 
     }
 
-    // line 15
+    // line 16
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -139,7 +142,7 @@ class __TwigTemplate_490c84959c173dabd2b9633835053a6a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 16
+        // line 17
         echo "        
         ";
         
@@ -150,7 +153,7 @@ class __TwigTemplate_490c84959c173dabd2b9633835053a6a extends Template
 
     }
 
-    // line 20
+    // line 21
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -160,7 +163,7 @@ class __TwigTemplate_490c84959c173dabd2b9633835053a6a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 21
+        // line 22
         echo "        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -182,7 +185,7 @@ class __TwigTemplate_490c84959c173dabd2b9633835053a6a extends Template
 
     public function getDebugInfo()
     {
-        return array (  164 => 21,  154 => 20,  143 => 16,  133 => 15,  122 => 12,  112 => 11,  93 => 5,  80 => 23,  77 => 22,  74 => 20,  72 => 19,  69 => 18,  67 => 15,  64 => 14,  61 => 11,  53 => 5,  47 => 1,);
+        return array (  167 => 22,  157 => 21,  146 => 17,  136 => 16,  125 => 12,  115 => 11,  96 => 5,  83 => 24,  80 => 23,  77 => 21,  75 => 20,  72 => 19,  70 => 16,  64 => 14,  61 => 11,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -200,6 +203,7 @@ class __TwigTemplate_490c84959c173dabd2b9633835053a6a extends Template
         {% block stylesheets %}
         
         {% endblock %}
+        <link rel=\"stylesheet\" href=\"{{ asset('styles/app.css')}}\">
         
         {% block javascripts %}
         

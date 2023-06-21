@@ -100,7 +100,13 @@ class __TwigTemplate_0a39f4df67ebdb0b41353ee9d46536b1 extends Template
             <a href=\"/shoes\" class=\"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\">Chaussures</a>
           </li>
           <li>
-            <a href=\"/accessories\" class=\"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\">Accessoire</a>
+            <a href=\"/accessories\" class=\"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\">Accessoires</a>
+          </li>
+          <li>
+            <a href=\"";
+        // line 53
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("product_index");
+        echo "\" class=\"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\">Tous les produits</a>
           </li>
         </ul>
       </div>
@@ -126,7 +132,7 @@ class __TwigTemplate_0a39f4df67ebdb0b41353ee9d46536b1 extends Template
 
     public function getDebugInfo()
     {
-        return array (  93 => 40,  87 => 38,  81 => 36,  79 => 35,  43 => 1,);
+        return array (  108 => 53,  93 => 40,  87 => 38,  81 => 36,  79 => 35,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -180,7 +186,10 @@ class __TwigTemplate_0a39f4df67ebdb0b41353ee9d46536b1 extends Template
             <a href=\"/shoes\" class=\"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\">Chaussures</a>
           </li>
           <li>
-            <a href=\"/accessories\" class=\"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\">Accessoire</a>
+            <a href=\"/accessories\" class=\"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\">Accessoires</a>
+          </li>
+          <li>
+            <a href=\"{{ path('product_index') }}\" class=\"block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent\">Tous les produits</a>
           </li>
         </ul>
       </div>

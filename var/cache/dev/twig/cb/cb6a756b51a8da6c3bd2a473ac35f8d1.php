@@ -86,52 +86,57 @@ class __TwigTemplate_e6efc96c58702d2fc2fd2b76d39d4983 extends Template
 
         // line 6
         echo "
+
 <h1><strong>Tous les produits<strong></h1>
 
-";
-        // line 9
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 9, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
-            // line 10
-            echo "
 
-<div class=\"w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700\">
-    <a href=\"#\">
-        <img class=\"p-8 rounded-t-lg\" src=\"";
-            // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "attachment", [], "any", false, false, false, 14), "html", null, true);
-            echo "\" alt=\"product image\" />
-    </a>
-    <div class=\"px-5 pb-5\">
+<div class=\"grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5\">
+    ";
+        // line 12
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 12, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
+            // line 13
+            echo "    <div class=\"w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700\">
         <a href=\"#\">
-            <h5 class=\"text-xl font-semibold tracking-tight text-gray-900 dark:text-white\">";
-            // line 18
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 18), "html", null, true);
-            echo "</h5>
+            <img class=\"p-8 rounded-t-lg\" src=\"";
+            // line 15
+            echo twig_escape_filter($this->env, $this->env->getRuntime('Vich\UploaderBundle\Twig\Extension\UploaderExtensionRuntime')->asset($context["product"], "attachmentFile"), "html", null, true);
+            echo "\" alt=\"product image\" />
         </a>
-        <div class=\"flex items-center justify-between\">
-            <span class=\"text-3xl font-bold text-gray-900 dark:text-white\">\$";
-            // line 21
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "price", [], "any", false, false, false, 21), "html", null, true);
-            echo "</span>
-            <a href=\"";
+        <div class=\"px-5 pb-5\">
+            <a href=\"#\">
+                <h5 class=\"text-xl font-semibold tracking-tight text-gray-900 dark:text-white\">";
+            // line 19
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "name", [], "any", false, false, false, 19), "html", null, true);
+            echo "</h5>
+            </a>
+            <div class=\"flex items-center justify-between\">
+                <span class=\"text-3xl font-bold text-gray-900 dark:text-white\">";
             // line 22
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("cart_index");
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "price", [], "any", false, false, false, 22), "html", null, true);
+            echo "€</span>
+                <a href=\"";
+            // line 23
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("basket_add", ["id" => twig_get_attribute($this->env, $this->source, $context["product"], "id", [], "any", false, false, false, 23)]), "html", null, true);
             echo "\" class=\"text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\">Ajouter au panier</a>
+            </div>
         </div>
     </div>
-</div>
 
-
-
-";
+    
+    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 30
-        echo "
+        echo "</div>
+
+
+
+
+
 
 ";
         
@@ -154,7 +159,7 @@ class __TwigTemplate_e6efc96c58702d2fc2fd2b76d39d4983 extends Template
 
     public function getDebugInfo()
     {
-        return array (  134 => 30,  120 => 22,  116 => 21,  110 => 18,  103 => 14,  97 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  134 => 30,  121 => 23,  117 => 22,  111 => 19,  104 => 15,  100 => 13,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -165,29 +170,34 @@ class __TwigTemplate_e6efc96c58702d2fc2fd2b76d39d4983 extends Template
 
 {% block body %}
 
+
 <h1><strong>Tous les produits<strong></h1>
 
-{% for product in products %}
 
-
-<div class=\"w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700\">
-    <a href=\"#\">
-        <img class=\"p-8 rounded-t-lg\" src=\"{{product.attachment}}\" alt=\"product image\" />
-    </a>
-    <div class=\"px-5 pb-5\">
+<div class=\"grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5\">
+    {% for product in products %}
+    <div class=\"w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700\">
         <a href=\"#\">
-            <h5 class=\"text-xl font-semibold tracking-tight text-gray-900 dark:text-white\">{{product.name}}</h5>
+            <img class=\"p-8 rounded-t-lg\" src=\"{{ vich_uploader_asset(product, 'attachmentFile')}}\" alt=\"product image\" />
         </a>
-        <div class=\"flex items-center justify-between\">
-            <span class=\"text-3xl font-bold text-gray-900 dark:text-white\">\${{product.price}}</span>
-            <a href=\"{{path('cart_index')}}\" class=\"text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\">Ajouter au panier</a>
+        <div class=\"px-5 pb-5\">
+            <a href=\"#\">
+                <h5 class=\"text-xl font-semibold tracking-tight text-gray-900 dark:text-white\">{{ product.name }}</h5>
+            </a>
+            <div class=\"flex items-center justify-between\">
+                <span class=\"text-3xl font-bold text-gray-900 dark:text-white\">{{ product.price }}€</span>
+                <a href=\"{{ path('basket_add', { id: product.id }) }}\" class=\"text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800\">Ajouter au panier</a>
+            </div>
         </div>
     </div>
+
+    
+    {% endfor %}
 </div>
 
 
 
-{% endfor %}
+
 
 
 {% endblock %}
