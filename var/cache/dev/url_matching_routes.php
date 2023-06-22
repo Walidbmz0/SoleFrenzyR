@@ -20,6 +20,8 @@ return [
         '/mon-panier/removeAll' => [[['_route' => 'basket_removeAll', '_controller' => 'App\\Controller\\BasketController::removeBasketAll'], null, null, null, false, false, null]],
         '/clothes' => [[['_route' => 'app_clothes', '_controller' => 'App\\Controller\\ClothesController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
+        '/order/create' => [[['_route' => 'order_index', '_controller' => 'App\\Controller\\OrderController::index'], null, null, null, false, false, null]],
+        '/order/verify' => [[['_route' => 'order_prepare', '_controller' => 'App\\Controller\\OrderController::prepareOrder'], null, ['POST' => 0], null, false, false, null]],
         '/product' => [[['_route' => 'product_index', '_controller' => 'App\\Controller\\ProductController::index'], null, null, null, false, false, null]],
         '/register' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/verify/email' => [[['_route' => 'app_verify_email', '_controller' => 'App\\Controller\\RegistrationController::verifyUserEmail'], null, null, null, false, false, null]],

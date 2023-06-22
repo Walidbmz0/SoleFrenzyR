@@ -77,6 +77,8 @@ class BasketService
                 $product = $this->em->getRepository(Product::class)->findOneBy(['id' => $id]);
                 if (!$product) {
                     // Supprimer le produit puis continuer en sortant de la boucle
+                    $this->removeBasket($id);
+                    continue;
                 }
                 $basketData[] = [
                     'product' => $product,

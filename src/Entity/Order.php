@@ -32,9 +32,31 @@ class Order
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '0')]
     private ?string $Order_total = null;
 
+    #[ORM\Column]
+    private ?float $DeliveryPrice = null;
+
+    #[ORM\Column]
+    private ?bool $isPaid = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $method = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $reference = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $stripeSessionId = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $paypalOrderId = null;
+
+    #[ORM\OneToMany(mappedBy: 'orderProduct', targetEntity: RecapDetails::class)]
+    private Collection $recapDetails;
+
     public function __construct()
     {
         $this->Product = new ArrayCollection();
+        $this->recapDetails = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -110,6 +132,108 @@ class Order
     public function setOrderTotal(string $Order_total): self
     {
         $this->Order_total = $Order_total;
+
+        return $this;
+    }
+
+    public function getDeliveryPrice(): ?float
+    {
+        return $this->DeliveryPrice;
+    }
+
+    public function setDeliveryPrice(float $DeliveryPrice): self
+    {
+        $this->DeliveryPrice = $DeliveryPrice;
+
+        return $this;
+    }
+
+    public function isIsPaid(): ?bool
+    {
+        return $this->isPaid;
+    }
+
+    public function setIsPaid(bool $isPaid): self
+    {
+        $this->isPaid = $isPaid;
+
+        return $this;
+    }
+
+    public function getMethod(): ?string
+    {
+        return $this->method;
+    }
+
+    public function setMethod(string $method): self
+    {
+        $this->method = $method;
+
+        return $this;
+    }
+
+    public function getReference(): ?string
+    {
+        return $this->reference;
+    }
+
+    public function setReference(string $reference): self
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getStripeSessionId(): ?string
+    {
+        return $this->stripeSessionId;
+    }
+
+    public function setStripeSessionId(?string $stripeSessionId): self
+    {
+        $this->stripeSessionId = $stripeSessionId;
+
+        return $this;
+    }
+
+    public function getPaypalOrderId(): ?string
+    {
+        return $this->paypalOrderId;
+    }
+
+    public function setPaypalOrderId(?string $paypalOrderId): self
+    {
+        $this->paypalOrderId = $paypalOrderId;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, RecapDetails>
+     */
+    public function getRecapDetails(): Collection
+    {
+        return $this->recapDetails;
+    }
+
+    public function addRecapDetail(RecapDetails $recapDetail): self
+    {
+        if (!$this->recapDetails->contains($recapDetail)) {
+            $this->recapDetails->add($recapDetail);
+            $recapDetail->setOrderProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecapDetail(RecapDetails $recapDetail): self
+    {
+        if ($this->recapDetails->removeElement($recapDetail)) {
+            // set the owning side to null (unless already changed)
+            if ($recapDetail->getOrderProduct() === $this) {
+                $recapDetail->setOrderProduct(null);
+            }
+        }
 
         return $this;
     }

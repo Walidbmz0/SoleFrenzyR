@@ -25,6 +25,8 @@ return [
     'basket_removeAll' => [[], ['_controller' => 'App\\Controller\\BasketController::removeBasketAll'], [], [['text', '/mon-panier/removeAll']], [], [], []],
     'app_clothes' => [[], ['_controller' => 'App\\Controller\\ClothesController::index'], [], [['text', '/clothes']], [], [], []],
     'app_home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], [], []],
+    'order_index' => [[], ['_controller' => 'App\\Controller\\OrderController::index'], [], [['text', '/order/create']], [], [], []],
+    'order_prepare' => [[], ['_controller' => 'App\\Controller\\OrderController::prepareOrder'], [], [['text', '/order/verify']], [], [], []],
     'product_index' => [[], ['_controller' => 'App\\Controller\\ProductController::index'], [], [['text', '/product']], [], [], []],
     'app_register' => [[], ['_controller' => 'App\\Controller\\RegistrationController::register'], [], [['text', '/register']], [], [], []],
     'app_verify_email' => [[], ['_controller' => 'App\\Controller\\RegistrationController::verifyUserEmail'], [], [['text', '/verify/email']], [], [], []],
