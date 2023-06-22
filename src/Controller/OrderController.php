@@ -96,11 +96,19 @@ class OrderController extends AbstractController
             }
             
             $this->em->flush();
-           
+
+            return $this ->render('order/recap.html.twig', [
+                'method' => $order->getMethod(),
+                'recapBasket' => $basketService->getTotal(),
+                'transporter' => $transporter,
+                'deliveryinfo' => $deliveryForOrder,
+                'reference' => $order->getReference()
+
+            ]);
 
         }
        
-        return $this ->render('order/recap.html.twig');
+        return $this->redirectToRoute('basket_index');
     }
     
     

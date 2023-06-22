@@ -1,9 +1,116 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
+    <a href="#" class="text-2xl font-bold text-gray-800">Did you find your solemate ?</a>
+    <div class="mt-4 py-2 text-xs sm:mt-0 sm:ml-auto sm:text-base">
+    <div class="relative">
+    <ul class="relative flex w-full items-center justify-between space-x-2 sm:space-x-4">
+    <li class="flex items-center space-x-3 text-left sm:space-x-4">
+    <a class="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-200 text-xs font-semibold text-emerald-700" href="{{ path('product_index') }}"
+    ><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg
+    ></a>
+    <span class="font-semibold text-gray-900">Boutique</span>
+    </li>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+    <li class="flex items-center space-x-3 text-left sm:space-x-4">
+    <a class="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-200 text-xs font-semibold text-emerald-700" href="{{ path('product_index') }}"
+    ><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg
+    ></a>
+    <span class="font-semibold text-gray-900">Recapitulatif</span>
+    </li>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+    </svg>
+          <li class="flex items-center space-x-3 text-left sm:space-x-4">
+            <a class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-600 text-xs font-semibold text-white ring ring-gray-600 ring-offset-2" href="#">3</a>
+            <span class="font-semibold text-gray-900">Paiement</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-{% endblock %}
+  <h1 class="text-center text-3xl font-bold mt-10">Verifier la commande</h1>
+  <h3 class="fs-base fw-normal text-body text-uppercase pb-1 pb-sm-1">1. <span class="fw-medium">Les détails d'expédition</span></h3>
 
-{% block title %}
+  <div class="form-check" mb-4">
+    <input class="form-check-input" type="radio" name="shipping" checked>
+    <label class="form-check-label" d-flex justify-content-between"><span>
+        <span class="d-block fs-base text-dark fw-medium mb-1">{{ transporter.title }}</span>
+      <span class="d-block fs-sm text-muted">{{ transporter.content }}</span></span>
+        <span class="d-block fs-base text-muted">{{ transporter.price|number_format(2, ',', '.') }} €</span>
+    </label>
+    </div>
+    <h3 class="fs-base fw-normal text-body text-uppercase pb-1 pb-sm-1">2. <span class="fw-medium">Adresse de livraison</span></h3>
+    <div class="form-check" mb-4">
+        <input class="form-check-input" type="radio" checked>
+        <label class="form-check-label d-flex justify-content-between">
+            <span class="d-block fs-base text-dark fw-medium mb-1">{{ deliveryinfo | raw }}</span>
+        </label>
+    </div>
+</div>
+
+<div class="col-lg-5 offset-lg-1 pt-1">
+    <h2 class="pb-2 pt-1 mb-2">Récapitulatif de la commande <span
+    class="fs-base fw-normal text-muted">({{ recapBasket|length }} produits)</span></h2>
+    {% set total = null %}
+    {% for product in recapBasket %}
+    <div class="d-sm-flex align-items-center border-top py-4">
+        <a class="d-inline-block flex-shrink-0 bg-secondary rounded-1 p-sm-2 p-xl-3 mb-2 mb-sm-0"
+        href="product-single.html">
+        <img src="" width="110" alt="Product"></a>
+        <div class="w-100 pt-1 ps-sm-4">
+            <div class="d-flex">
+                <div class="me-3">
+                    <h3 class="h5 mb-2"><a href="product-single.html" class="fs-base">{{ product.product.name }}</a></h3>
+                </div>
+                <div class="pt-2">
+                    <h6 class="mb-2 text-muted">Prix : {{ (product.product.price / 100)|number_format(2, ',', '.') }} €</h6>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    {% set total = total + (product.product.price * product.quantity) %}
+    {% endfor %}
+        
+        <ul class="list-unstyled py-3 mb-0">
+            <li class="d-flex justify-content-between mb-2">Sous-total:<span class="fw-medium">{{ (total / 100)|number_format(2, ',', '.') }} €</span></li>
+            <li class="d-flex justify-content-between mb-2">Frais de livraison:<span class="fw-medium">{{ (transporter.price / 100)|number_format(2, ',', '.') }} €</span></li>
+        </ul>
+        <div class="d-flex align-items-center justify-content-between border-top fs-xl pt-4">Total:<span
+            class="fs-3 fw-semibold text-dark ms-2">{{ (total / 100 + (transporter.price / 100 ))|number_format(2, ',', '.') }} €</span>
+        </div>
+            <div class="mt-4 text-center">
+
+                {% if method == 'stripe' %}
+
+                <form method="POST" action="{{ path('payment_stripe', {reference: reference })}}">
+                    <Button class="btn btn-secondary" type="submit" 
+                    style="border-radius: 6px; position:relative; top:20px;">
+                        Payer par Stripe
+                        | {{ (total / 100 + (transporter.price / 100 ))|number_format(2, ',', '.') }} €
+                </button>
+            </form>
+            {% else %}
+
+
+            <form method="POST" action="#">
+                <Button class="btn btn-primary" type="submit" 
+                style="border-radius: 6px; position:relative; top:20px;">
+                    Payer par Paypal
+                    | {{ (total / 100 + (transporter.price / 100 ))|number_format(2, ',', '.') }} €
+            </button>
+        </form>
+        {% endif %}
+    </div>
+</div>
+</div>
+</div>
 
 {% endblock %}

@@ -51,6 +51,11 @@ return [
                     .'|remove/(\\d+)(*:214)'
                     .'|decrease/(\\d+)(*:236)'
                 .')'
+                .'|/order/(?'
+                    .'|create\\-session\\-stripe/([^/]++)(*:287)'
+                    .'|success/([^/]++)(*:311)'
+                    .'|error/([^/]++)(*:333)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -63,8 +68,11 @@ return [
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         194 => [[['_route' => 'basket_add', '_controller' => 'App\\Controller\\BasketController::addToBasket'], ['id'], null, null, false, true, null]],
         214 => [[['_route' => 'basket_remove', '_controller' => 'App\\Controller\\BasketController::removeBasket'], ['id'], null, null, false, true, null]],
-        236 => [
-            [['_route' => 'basket_decrease', '_controller' => 'App\\Controller\\BasketController::decrease'], ['id'], null, null, false, true, null],
+        236 => [[['_route' => 'basket_decrease', '_controller' => 'App\\Controller\\BasketController::decrease'], ['id'], null, null, false, true, null]],
+        287 => [[['_route' => 'payment_stripe', '_controller' => 'App\\Controller\\PaymentController::stripeCheckout'], ['reference'], null, null, false, true, null]],
+        311 => [[['_route' => 'payment_success', '_controller' => 'App\\Controller\\PaymentController::StripeSuccess'], ['reference'], null, null, false, true, null]],
+        333 => [
+            [['_route' => 'payment_error', '_controller' => 'App\\Controller\\PaymentController::StripError'], ['reference'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

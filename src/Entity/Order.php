@@ -29,8 +29,6 @@ class Order
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $Order_date = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '0')]
-    private ?string $Order_total = null;
 
     #[ORM\Column]
     private ?float $DeliveryPrice = null;
@@ -120,18 +118,6 @@ class Order
     public function setOrderDate(\DateTimeInterface $Order_date): self
     {
         $this->Order_date = $Order_date;
-
-        return $this;
-    }
-
-    public function getOrderTotal(): ?string
-    {
-        return $this->Order_total;
-    }
-
-    public function setOrderTotal(string $Order_total): self
-    {
-        $this->Order_total = $Order_total;
 
         return $this;
     }
